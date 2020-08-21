@@ -1,0 +1,2 @@
+airflow_dags_folder: /etc/airflow/dags
+dag_git_repos: []

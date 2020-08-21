@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+    - common
+    - volumes
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+  vars:
+    pip_install_packages:
+      - name: docker
+

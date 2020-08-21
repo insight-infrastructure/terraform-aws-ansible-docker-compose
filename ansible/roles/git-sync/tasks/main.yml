@@ -1,0 +1,15 @@
+---
+
+- name: Create
+
+- name: Create superset systemd service
+  template:
+    src: "superset.service.j2"
+    dest: "{{ superset_service }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload systemctl
+    - restart superset
+
