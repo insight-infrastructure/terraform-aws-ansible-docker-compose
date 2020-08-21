@@ -9,3 +9,5 @@
 
 test/fixtures/keys/*
 !test/fixtures/keys/.gitkeep
+
+.bak/

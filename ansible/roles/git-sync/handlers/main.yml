@@ -1,9 +1,0 @@
-- name: reload systemctl
-  command: systemctl daemon-reload
-
-- name: restart gitsync
-  service:
-    name: gitsync
-    state: restarted
-    enabled: yes
-
