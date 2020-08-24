@@ -40,7 +40,7 @@ func configureTerraformOptions(t *testing.T, exampleFolder string) (*terraform.O
 	uniqueID := random.UniqueId()
 	awsRegion := aws.GetRandomStableRegion(t, nil, nil)
 
-	sshIps := os.Getenv("ssh_ips")
+	sshIps := os.Getenv("executor_ips")
 
 	keyPairName := fmt.Sprintf("terratest-ssh-example-%s", uniqueID)
 	keyPair := aws.CreateAndImportEC2KeyPair(t, awsRegion, keyPairName)
