@@ -15,6 +15,10 @@ jobs:
             sudo unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin
           name: Install Terraform
       - run:
+          command: |
+            TF_VAR_ssh_ips=[\"$(wget -qO- http://checkip.amazonaws.com)\"]
+          name: Set executor IP address variable
+      - run:
           name: Run tests
           command: |
             make test
