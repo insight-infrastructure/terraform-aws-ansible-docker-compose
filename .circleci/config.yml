@@ -16,7 +16,7 @@ jobs:
           name: Install Terraform
       - run:
           command: |
-            echo 'export executor_ips=["$(wget -qO- http://checkip.amazonaws.com)"]' >> $BASH_ENV
+            echo 'export executor_ips=[""$(wget -qO- http://checkip.amazonaws.com)""]' >> $BASH_ENV
             source $BASH_ENV
           name: Set executor IP address variable
       - run:
