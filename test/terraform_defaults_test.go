@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 	"io/ioutil"
-	"os"
+	//"os"
 	"path"
 	"testing"
 )
