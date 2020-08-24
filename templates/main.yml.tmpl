@@ -5,7 +5,11 @@
     - volumes
     - geerlingguy.pip
     - geerlingguy.docker
-
+%{ for role in roles ~}
+%{ if role != ""}
+    - ${role}
+%{ endif }
+%{ endfor ~}
   vars:
     pip_install_packages:
       - name: docker
