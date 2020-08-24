@@ -8,9 +8,11 @@ provider "aws" {
 
 variable "private_key_path" {}
 variable "public_key_path" {}
+variable "ssh_ips" {}
 
 module "defaults" {
   source           = "../.."
   private_key_path = ""
   public_key_path  = ""
+  ssh_ips = var.ssh_ips
 }
