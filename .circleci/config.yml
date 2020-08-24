@@ -16,7 +16,7 @@ jobs:
           name: Install Terraform
       - run:
           command: |
-            TF_VAR_ssh_ips=[\"$(wget -qO- http://checkip.amazonaws.com)\"]
+            export TF_VAR_ssh_ips=[\"$(wget -qO- http://checkip.amazonaws.com)\"]
           name: Set executor IP address variable
       - run:
           name: Run tests
