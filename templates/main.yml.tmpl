@@ -4,11 +4,11 @@
     - insight_infra.cloud_helper
     - geerlingguy.pip
     - geerlingguy.docker
+%{ if roles != null ~}
 %{ for role in roles ~}
-%{ if role != ""}
     - ${role}
-%{ endif }
 %{ endfor ~}
+%{ endif ~}
   vars:
     enable_cloud_wait: true
     enable_jq: true
