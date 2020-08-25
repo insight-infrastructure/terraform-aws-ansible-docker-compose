@@ -13,4 +13,5 @@ module "defaults" {
   source           = "../.."
   private_key_path = var.private_key_path
   public_key_path  = var.public_key_path
+  open_ports       = [3000, 4000, 5000]
 }

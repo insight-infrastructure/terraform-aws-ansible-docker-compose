@@ -16,12 +16,6 @@ variable "create" {
   description = "Boolean to determine if you should create the instance or destroy all associated resources"
 }
 
-variable "additional_roles" {
-  description = "A list of role names from Ansible Galaxy to include"
-  type = list(string)
-  default = [""]
-}
-
 #####
 # ec2
 #####

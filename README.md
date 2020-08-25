@@ -27,18 +27,24 @@ module "this" {
 No issue is creating limit on this module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | aws | n/a |
+| local | n/a |
 | null | n/a |
 | random | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
+| additional\_roles | A list of role names from Ansible Galaxy to include | `list(string)` | `null` | no |
 | additional\_security\_groups | List of additional security groups | `list(string)` | `[]` | no |
 | certbot\_admin\_email | Admin email for SSL cert - must be in same domain | `string` | `""` | no |
 | create | Boolean to determine if you should create the instance or destroy all associated resources | `bool` | `true` | no |
@@ -52,7 +58,7 @@ No issue is creating limit on this module.
 | instance\_profile\_id | The id of the instance profile to associat with instance | `string` | `""` | no |
 | instance\_type | Instance type | `string` | `"t2.medium"` | no |
 | json\_policy | A json policy to associate with instance | `string` | `""` | no |
-| json\_policy\_name | A name to associate with json policy. Blank to autogenerate | `string` | n/a | yes |
+| json\_policy\_name | A name to associate with json policy. Blank to autogenerate | `string` | `null` | no |
 | key\_name | The key pair to import | `string` | `""` | no |
 | name | A unique id for the deployment | `string` | `""` | no |
 | open\_ports | A list of open ports | `list(string)` | `[]` | no |
@@ -60,8 +66,8 @@ No issue is creating limit on this module.
 | private\_key\_path | The path to the private ssh key | `string` | n/a | yes |
 | public\_key\_path | The path to the public ssh key | `string` | n/a | yes |
 | root\_volume\_size | Root volume size | `string` | `8` | no |
-| ssh\_ips | List of IPs to restrict ssh traffic to | `list(string)` | n/a | yes |
-| subnet\_id | The id of the subnet. Must be supplied if given vpc\_id | `string` | n/a | yes |
+| ssh\_ips | List of IPs to restrict ssh traffic to | `list(string)` | `null` | no |
+| subnet\_id | The id of the subnet. Must be supplied if given vpc\_id | `string` | `null` | no |
 | tags | Tags that are added to resources | `map(string)` | `{}` | no |
 | vpc\_id | The vpc id to associate with.  Must be supplied if given subnet\_id | `string` | `""` | no |
 
