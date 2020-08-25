@@ -7,7 +7,6 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 	"io/ioutil"
-	"os"
 	"path"
 	"testing"
 )
@@ -40,8 +39,6 @@ func configureTerraformOptions(t *testing.T, exampleFolder string) (*terraform.O
 	uniqueID := random.UniqueId()
 	awsRegion := aws.GetRandomStableRegion(t, nil, nil)
 
-	sshIps := []string{os.Getenv("executor_ips")}
-
 	keyPairName := fmt.Sprintf("terratest-ssh-example-%s", uniqueID)
 	keyPair := aws.CreateAndImportEC2KeyPair(t, awsRegion, keyPairName)
 
@@ -65,7 +62,6 @@ func configureTerraformOptions(t *testing.T, exampleFolder string) (*terraform.O
 			"aws_region":    awsRegion,
 			"public_key_path":    publicKeyPath,
 			"private_key_path": privateKeyPath,
-			"ssh_ips": sshIps,
 		},
 	}
 
