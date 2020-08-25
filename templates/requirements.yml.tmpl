@@ -2,8 +2,8 @@ roles:
   - src: insight_infra.cloud_helper
   - src: geerlingguy.pip
   - src: geerlingguy.docker
+%{ if roles != null ~}
 %{ for role in roles ~}
-%{ if role != "" }
- - src: ${role}
-%{ endif }
+  - src: ${role}
 %{ endfor ~}
+%{ endif ~}
