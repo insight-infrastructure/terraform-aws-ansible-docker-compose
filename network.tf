@@ -80,13 +80,25 @@ variable "open_ports" {
   default     = []
 }
 
-resource "aws_security_group_rule" "rpc" {
+resource "aws_security_group_rule" "rpc-tcp" {
   count = var.create_security_group ? length(var.open_ports) : 0
 
   description       = "${var.name}-${count.index}"
   from_port         = var.open_ports[count.index]
   to_port           = var.open_ports[count.index]
-  protocol          = -1
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = join("", aws_security_group.this.*.id)
+  type              = "ingress"
+}
+
+resource "aws_security_group_rule" "rpc-udp" {
+  count = var.create_security_group ? length(var.open_ports) : 0
+
+  description       = "${var.name}-${count.index}"
+  from_port         = var.open_ports[count.index]
+  to_port           = var.open_ports[count.index]
+  protocol          = "udp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = join("", aws_security_group.this.*.id)
   type              = "ingress"

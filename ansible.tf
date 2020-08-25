@@ -9,20 +9,20 @@ variable "create_ansible" {
 
 variable "additional_roles" {
   description = "A list of role names from Ansible Galaxy to include"
-  type = list(string)
-  default = null
+  type        = list(string)
+  default     = null
 }
 
 resource "local_file" "ansible_main" {
-  count = var.create_ansible ? 1 : 0
+  count    = var.create_ansible ? 1 : 0
   filename = "${path.module}/ansible/main.yml"
-  content = templatefile("${path.module}/templates/main.yml.tmpl", { roles = var.additional_roles })
+  content  = templatefile("${path.module}/templates/main.yml.tmpl", { roles = var.additional_roles })
 }
 
 resource "local_file" "ansible_requirements" {
-  count = var.create_ansible ? 1 : 0
+  count    = var.create_ansible ? 1 : 0
   filename = "${path.module}/ansible/requirements.yml"
-  content = templatefile("${path.module}/templates/requirements.yml.tmpl", { roles = var.additional_roles })
+  content  = templatefile("${path.module}/templates/requirements.yml.tmpl", { roles = var.additional_roles })
 }
 
 module "ansible" {
