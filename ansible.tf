@@ -7,6 +7,12 @@ variable "create_ansible" {
   default     = true
 }
 
+variable "additional_roles" {
+  description = "A list of role names from Ansible Galaxy to include"
+  type = list(string)
+  default = null
+}
+
 resource "local_file" "ansible_main" {
   count = var.create_ansible ? 1 : 0
   filename = "${path.module}/ansible/main.yml"
