@@ -11,6 +11,6 @@ variable "public_key_path" {}
 
 module "defaults" {
   source           = "../.."
-  private_key_path = ""
-  public_key_path  = ""
+  private_key_path = var.private_key_path
+  public_key_path  = var.public_key_path
 }

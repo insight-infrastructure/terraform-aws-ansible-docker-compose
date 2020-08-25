@@ -1,0 +1,17 @@
+---
+- hosts: all
+  roles:
+    - insight_infra.cloud_helper
+    - geerlingguy.pip
+    - geerlingguy.docker
+%{ for role in roles ~}
+%{ if role != ""}
+    - ${role}
+%{ endif }
+%{ endfor ~}
+  vars:
+    enable_cloud_wait: true
+    enable_jq: true
+    pip_install_packages:
+      - name: docker
+      - name: docker-compose
