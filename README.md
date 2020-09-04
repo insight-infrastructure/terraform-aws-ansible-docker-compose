@@ -37,7 +37,6 @@ No requirements.
 |------|---------|
 | aws | n/a |
 | local | n/a |
-| null | n/a |
 | random | n/a |
 
 ## Inputs

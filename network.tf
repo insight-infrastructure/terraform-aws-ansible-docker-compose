@@ -18,13 +18,13 @@ data "aws_vpc" "default" {
   tags    = var.tags
 }
 
-resource "null_resource" "is_array_length_correct" {
-  count = var.subnet_id == null && var.vpc_id == "" || var.subnet_id != "" && var.vpc_id != "" ? 0 : 1
-
-  provisioner "local-exec" {
-    command = "both vpc_id and subnet_id must be filled in together"
-  }
-}
+//resource "null_resource" "is_array_length_correct" {
+//  count = var.subnet_id == null && var.vpc_id == "" || var.subnet_id != "" && var.vpc_id != "" ? 0 : 1
+//
+//  provisioner "local-exec" {
+//    command = "both vpc_id and subnet_id must be filled in together"
+//  }
+//}
 
 #################
 # Security Groups
