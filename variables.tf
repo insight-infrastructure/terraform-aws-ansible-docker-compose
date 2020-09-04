@@ -46,10 +46,3 @@ variable "private_key_path" {
   description = "The path to the private ssh key"
   type        = string
 }
-
-variable "playbook_vars" {
-  description = "Extra vars to include, can be hcl or json"
-  type        = map(string)
-  default     = {}
-}
-

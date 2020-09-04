@@ -13,6 +13,12 @@ variable "additional_roles" {
   default     = null
 }
 
+variable "playbook_vars" {
+  description = "Extra vars to include, can be hcl or json"
+  type        = map(string)
+  default     = {}
+}
+
 resource "local_file" "ansible_main" {
   count    = var.create_ansible ? 1 : 0
   filename = "${path.module}/ansible/main.yml"
@@ -38,7 +44,5 @@ module "ansible" {
   playbook_file_path     = "${path.module}/ansible/main.yml"
   requirements_file_path = "${path.module}/ansible/requirements.yml"
 
-  playbook_vars = {
-
-  }
+  playbook_vars = var.playbook_vars
 }
