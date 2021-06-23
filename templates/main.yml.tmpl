@@ -1,5 +1,10 @@
 ---
 - hosts: all
+  pre_tasks:
+    - pip:
+        name: "python3-pip"
+        state: "present"
+    - shell: python -m pip install -U pip
   roles:
     - insight_infra.cloud_helper
     - geerlingguy.pip
